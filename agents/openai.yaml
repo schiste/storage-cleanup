@@ -1,0 +1,3 @@
+interface:
+  display_name: "Storage Cleanup"
+  short_description: "Find and clean macOS storage safely"
