@@ -28,6 +28,7 @@ Use this as a discovery map, not a deletion list. Paths are examples relative to
 - Development worktrees, generated test evidence, `.git` metadata and recovery archives can contain uncommitted changes or unique history. Git `rr-cache` contains remembered conflict resolutions, not just redundant bytes. Inspect status and active worktrees; use supported Git operations with appropriate care and avoid aggressive pruning while repositories or agents may be active.
 - For multi-generation environments, inspect each installation's manifest and active pointers, plus leases and open handles. An unreferenced generation is a candidate, not proof of inactivity; preserve in-use and rollback generations unless their loss is authorized. Shared files and APFS cloning can make aggregate directory sizes overstate savings.
 - Prefer package-manager cleanup for managed versions. A local dry run may need metadata or network access even with update checks disabled; report failures rather than claiming completion. Keep versions pinned by projects and the active version. Separate a service's currently open log from rotated logs.
+- Before relocating an ignored directory, verify it contains no tracked or non-ignored files or nested repositories. Git can report a directory as ignored because its files match ignore rules; if the directory path itself does not match `git check-ignore`, check the contained file paths individually.
 
 ## Agent history and Codex-specific stores
 
